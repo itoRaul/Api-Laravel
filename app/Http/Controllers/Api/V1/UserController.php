@@ -11,13 +11,12 @@ class UserController extends Controller
 {
     public function index()
     {
-        return UserResource::collection(User::all());
+        return UserResource::collection(User::all()); //retorna todos os usuarios
     }
 
 
-    public function show(string $id)
+    public function show(User $user)
     {
-        return new UserResource((User::where('id', $id)->first()));
+        return new UserResource($user); //retorna por id de cada usuario
     }
-    
 }
